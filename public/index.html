@@ -1,0 +1,107 @@
+<!doctype html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#0b7a55">
+  <meta name="description" content="FASHNET measures real internet speed, latency, stability and consistency, then explains what the connection means for everyday use.">
+  <meta property="og:title" content="FASHNET — Know your connection">
+  <meta property="og:description" content="Measure speed, responsiveness, stability and consistency from one clean connection test.">
+  <meta property="og:type" content="website">
+  <meta name="twitter:card" content="summary">
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="manifest" href="manifest.webmanifest">
+  <link rel="stylesheet" href="styles.css">
+  <title>FASHNET — Know your connection</title>
+</head>
+<body>
+  <div class="topline"><div class="shell topnote"><span><i></i> First-party FASHNET test endpoint</span><button id="dismissTop" aria-label="Dismiss notice">×</button></div></div>
+  <header class="topbar">
+    <div class="shell nav-wrap">
+      <a class="brand" href="#test" data-go="test" aria-label="FASHNET home">
+        <span class="brand-mark" aria-hidden="true"><svg viewBox="0 0 32 32" fill="none"><path d="M5 21.4 16 4l11 17.4-11-5.5L5 21.4Z" fill="currentColor"/><path d="m10.7 24.2 5.3-2.6 5.3 2.6-5.3 3.4-5.3-3.4Z" fill="currentColor" opacity=".42"/></svg></span>
+        <span>FASHNET</span><small>by Fash</small>
+      </a>
+      <nav aria-label="Primary navigation"><button class="nav-btn active" data-go="test">Test</button><button class="nav-btn" data-go="results">Results</button><button class="nav-btn" data-go="history">History</button><button class="nav-btn" data-go="diagnostics">Diagnostics</button></nav>
+      <div class="nav-actions"><button id="themeToggle" class="icon-btn" aria-label="Toggle color theme" title="Toggle theme">☾</button><button id="shareTop" class="outline-btn">Share</button></div>
+    </div>
+  </header>
+
+  <main class="shell">
+    <section class="hero" id="test">
+      <div class="hero-copy">
+        <div class="eyebrow">FASHNET CONNECTION TEST</div>
+        <h1>Know more than<br><span>your Mbps.</span></h1>
+        <p class="hero-lede">Your connection can be fast and still feel awful. FASHNET measures speed, responsiveness, stability and consistency so you can see what is really happening.</p>
+        <div class="promise-grid">
+          <div><b>01</b><strong>Speed</strong><span>How fast data moves.</span></div>
+          <div><b>02</b><strong>Responsiveness</strong><span>How quickly it answers.</span></div>
+          <div><b>03</b><strong>Stability</strong><span>How often packets wobble or disappear.</span></div>
+          <div><b>04</b><strong>Consistency</strong><span>How steady performance stays.</span></div>
+        </div>
+        <div class="switch-callout"><strong>Why leave Fast.com?</strong><span>FASHNET keeps the simple speed test, then goes further with loaded latency, loss, consistency, history and plain-English diagnosis.</span></div>
+      </div>
+
+      <section class="tester" aria-label="FASHNET speed test">
+        <div class="tester-head"><div><span>FASHNET EDGE</span><strong id="edgeName">Detecting…</strong></div><div id="statusBadge" class="status ready"><i></i><span>Ready</span></div></div>
+        <div class="mode-row" role="group" aria-label="Test depth"><button class="mode-btn active" data-mode="quick">Quick</button><button class="mode-btn" data-mode="deep">Deep</button><span id="modeHint">About 8–15 seconds</span></div>
+        <div class="gauge-area"><div class="gauge" id="gauge"><div class="gauge-core"><span id="phase">READY</span><strong id="mainSpeed">—</strong><small id="mainUnit">Mbps</small></div></div></div>
+        <div class="progress"><div class="progress-track"><i id="progressFill"></i></div><span id="progressPct">0%</span></div>
+        <p class="progress-copy" id="progressLabel">Real traffic from this browser to FASHNET.</p>
+        <div class="metric-grid">
+          <div><span>DOWNLOAD</span><strong id="downloadValue">—</strong><small>Mbps</small></div>
+          <div><span>UPLOAD</span><strong id="uploadValue">—</strong><small>Mbps</small></div>
+          <div><span>PING</span><strong id="pingValue">—</strong><small>ms</small></div>
+          <div><span>JITTER</span><strong id="jitterValue">—</strong><small>ms</small></div>
+          <div><span>PACKET LOSS</span><strong id="lossValue">—</strong><small>%</small></div>
+          <div><span>LOADED PING</span><strong id="loadedPingValue">—</strong><small>ms</small></div>
+        </div>
+        <div class="test-actions"><button id="startBtn" class="primary-btn">Start test</button><button id="stopBtn" class="outline-btn" hidden>Stop</button><button id="shareBtn" class="outline-btn" disabled>Share</button></div>
+        <div class="test-note" id="liveStatus" aria-live="polite">For the cleanest result, pause large downloads or streams.</div>
+      </section>
+    </section>
+
+    <section class="section" id="results">
+      <div class="section-head"><div class="eyebrow">RESULT <span id="sharedFlag" class="mini-chip" hidden>Shared result</span></div><h2 id="resultHeadline">Run FASHNET to see the full picture.</h2><p id="resultSummary">A single quality score is backed by four measurable dimensions, plus a direct explanation of what the result means.</p></div>
+      <div class="result-hero-grid">
+        <article class="score-card"><div class="score-label">FASHNET QUALITY</div><div class="score" id="qualityScore">—<small>/100</small></div><div class="score-status" id="qualityLabel">No result yet</div><p id="qualityAdvice">Your score will appear here after a completed test.</p><div class="score-meta"><span>Based on measured traffic</span><span id="scoreMode">—</span><span id="compareMeta">—</span></div></article>
+        <article class="read-card"><div class="read-head"><div><span class="eyebrow">THE TAKEAWAY</span><h3 id="takeawayTitle">No result yet</h3></div><span class="mini-chip" id="takeawayChip">—</span></div><p id="takeawayText">Run a test and FASHNET will summarize your connection in normal language.</p><div class="use-list" id="useList"></div></article>
+      </div>
+
+      <div class="breakdown-card">
+        <div class="break-row"><div><span>Speed</span><b id="speedGrade">—</b></div><i><em id="speedBar"></em></i><small id="speedDetail">—</small></div>
+        <div class="break-row"><div><span>Responsiveness</span><b id="responseGrade">—</b></div><i><em id="responseBar"></em></i><small id="responseDetail">—</small></div>
+        <div class="break-row"><div><span>Stability</span><b id="stabilityGrade">—</b></div><i><em id="stabilityBar"></em></i><small id="stabilityDetail">—</small></div>
+        <div class="break-row"><div><span>Consistency</span><b id="consistencyGrade">—</b></div><i><em id="consistencyBar"></em></i><small id="consistencyDetail">—</small></div>
+      </div>
+
+      <div class="detail-grid"><div><span>Latency class</span><strong id="latencyClass">—</strong></div><div><span>Loaded ping</span><strong id="resultLoadedPing">—</strong></div><div><span>Packet loss</span><strong id="resultLoss">—</strong></div><div><span>FASHNET edge</span><strong id="resultEndpoint">—</strong></div></div>
+      <div class="insight-grid"><article><span>WHAT IT SHOULD HANDLE</span><strong id="useCaseTitle">—</strong><p id="useCaseText">—</p></article><article><span>WHAT MAY BE HOLDING IT BACK</span><strong id="bottleneckTitle">—</strong><p id="bottleneckText">—</p></article></div>
+      <div class="consistency-panel"><div class="panel-head"><div><h3>Consistency during this test</h3><p id="consistencyCaption">No sample timeline yet.</p></div><span id="consistencyBadge" class="mini-chip">—</span></div><div id="sampleBars" class="sample-bars" aria-label="Throughput sample timeline"></div></div>
+      <div class="result-actions"><button id="runAgain" class="primary-btn small">Run another test</button><button id="downloadReport" class="outline-btn small">Save report</button><button id="copyLink" class="outline-btn small">Copy result link</button></div>
+    </section>
+
+    <section class="section" id="history">
+      <div class="section-head history-head"><div><div class="eyebrow">ON THIS DEVICE</div><h2>History with a point.</h2><p>FASHNET keeps tests locally so you can compare today with your own normal instead of guessing.</p></div><div class="history-actions"><button id="exportHistory" class="outline-btn small">Export CSV</button><button id="clearHistory" class="outline-btn small danger">Clear</button></div></div>
+      <div id="historySummary" class="history-summary" hidden></div>
+      <div class="trend-card" id="trendCard" hidden><div class="panel-head"><div><h3>Your recent trend</h3><p id="trendCaption">—</p></div><span id="trendBadge" class="mini-chip">—</span></div><div id="trendBars" class="trend-bars"></div></div>
+      <div class="history-card"><div class="history-table-head"><span>Date</span><span>Down</span><span>Up</span><span>Ping</span><span>Quality</span><span>Edge</span></div><div id="historyRows"><div class="empty">No completed tests yet.</div></div></div>
+    </section>
+
+    <section class="section" id="diagnostics">
+      <div class="section-head"><div class="eyebrow">DIAGNOSTICS</div><h2>See the network behind the number.</h2><p>FASHNET separates live server-side identity from browser estimates so the site never presents an estimate as a measured fact.</p></div>
+      <div class="diag-grid">
+        <article class="panel"><div class="panel-head"><h3>Live browser estimate</h3><button id="refreshConnection" class="text-btn">Refresh</button></div><dl><div><dt>Network API</dt><dd id="networkApi">—</dd></div><div><dt>Effective type</dt><dd id="effectiveType">—</dd></div><div><dt>Downlink estimate</dt><dd id="downlink">—</dd></div><div><dt>RTT estimate</dt><dd id="rtt">—</dd></div><div><dt>Browser online</dt><dd id="online">—</dd></div></dl></article>
+        <article class="panel"><div class="panel-head"><h3>Live network identity</h3><button id="refreshMeta" class="text-btn">Refresh</button></div><dl><div><dt>Public IP</dt><dd id="publicIp">Loading…</dd></div><div><dt>Provider / ASN</dt><dd id="provider">Loading…</dd></div><div><dt>Approx. location</dt><dd id="location">Loading…</dd></div><div><dt>FASHNET edge</dt><dd id="metaEdge">Loading…</dd></div></dl><p class="privacy-note">Shown only when the live FASHNET endpoint provides it. Results are not uploaded to an account.</p></article>
+        <article class="panel"><div class="panel-head"><h3>Browser & device</h3></div><dl><div><dt>Browser</dt><dd id="browser">—</dd></div><div><dt>Platform</dt><dd id="platform">—</dd></div><div><dt>Screen</dt><dd id="screen">—</dd></div><div><dt>Reduced motion</dt><dd id="motion">—</dd></div></dl></article>
+        <article class="panel"><div class="panel-head"><h3>Useful checks</h3></div><div class="tool-list"><button id="checkInternet">Check FASHNET reachability</button><button id="checkShare">Check sharing support</button><button id="copyDiagnostics">Copy diagnostics</button></div><p id="toolStatus" class="tool-status" aria-live="polite"></p></article>
+      </div>
+    </section>
+
+    <section class="switch-section"><div><div class="eyebrow">THE FASHNET REASON</div><h2>One speed number is not the whole story.</h2><p>FASHNET keeps the simplicity of a quick test but adds the context people actually need: what changes under load, whether the line is stable, and whether today's result is normal for you.</p></div><button class="primary-btn" data-go="test">Test my connection</button></section>
+  </main>
+
+  <footer><div class="shell footer-inner"><div class="footer-brand"><span class="brand-mark" aria-hidden="true"><svg viewBox="0 0 32 32" fill="none"><path d="M5 21.4 16 4l11 17.4-11-5.5L5 21.4Z" fill="currentColor"/><path d="m10.7 24.2 5.3-2.6 5.3 2.6-5.3 3.4-5.3-3.4Z" fill="currentColor" opacity=".42"/></svg></span>FASHNET</div><span>Connection diagnostics by Fash.</span><span>Local history · No account required.</span></div></footer>
+  <script src="app.js" defer></script>
+</body>
+</html>
